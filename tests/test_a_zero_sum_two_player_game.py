@@ -8,11 +8,7 @@ from a_zero_sum_two_player_game.game import (
 )
 
 sample = np.array([[0.2, 0.3, 0.4], [0.5, 0.1, 0.0], [0.1, 0.2, 0.3]])
-file = (
-    "/home/gunater/Dokumenty/"
-    "A-zero-sum-two-player-game/"
-    "A-zero-sum-two-player-game/sample.txt"
-)
+file = "/home/gunater/Dokumenty/" "A-zero-sum-two-player-game/" "game-theory/sample.txt"
 
 
 def test_load_data():

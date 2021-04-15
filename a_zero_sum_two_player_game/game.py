@@ -1,10 +1,6 @@
 import numpy as np
 
-file = (
-    "/home/gunater/Dokumenty/"
-    "A-zero-sum-two-player-game/"
-    "A-zero-sum-two-player-game/sample.txt"
-)
+file = "/home/gunater/Dokumenty/" "A-zero-sum-two-player-game/" "game-theory/sample.txt"
 
 
 def load_data(file_name: str = "sample"):
