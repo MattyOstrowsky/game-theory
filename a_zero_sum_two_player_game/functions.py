@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.optimize import linprog
 
-file = "/home/gunater/Dokumenty/" "A-zero-sum-two-player-game/" "game-theory/sample.txt"
+file = "/home/florke/PycharmProjects/" "game-theory/sample.txt"
 
 
 def load_data(file_name: str = "sample"):
@@ -71,7 +71,7 @@ def saddle_point(data):
 def linprog_A(data):
     # https://towardsdatascience.com/linear-programming-with-python-db7742b91cb
     # wyklad cz1 str167
-    data = np.array([[5, 0, 1], [2, 4, 3]])
+    #data = np.array([[5, 0, 1], [2, 4, 3]])
     data_transpose = data.transpose()
     negative_t_data = np.negative(data_transpose)
     b = np.ones(len(negative_t_data[0]))
@@ -82,20 +82,20 @@ def linprog_A(data):
         y = np.zeros(len(negative_t_data[0]))
         y[i] = -1
         negative_t_data = np.append(negative_t_data, [y], axis=0)
-    print(negative_t_data)
-    print(b)
-    print(c)
+    # print(negative_t_data)
+    # print(b)
+    # print(c)
     res = linprog(b, A_ub=negative_t_data, b_ub=c)
-    print(
-        "Optimal value:",
-        round(res.fun * -1, ndigits=2),
-        "\nx values:",
-        res.x,
-        "\nNumber of iterations performed:",
-        res.nit,
-        "\nStatus:",
-        res.message,
-    )
+    # print(
+    #     "Optimal value:",
+    #     round(res.fun * -1, ndigits=2),
+    #     "\nx values:",
+    #     res.x,
+    #     "\nNumber of iterations performed:",
+    #     res.nit,
+    #     "\nStatus:",
+    #     res.message,
+    # )
 
     v = 0
     return_results = []
@@ -106,11 +106,11 @@ def linprog_A(data):
 
     for y in res.x:
         return_results.append(v * y)
-    return return_results, v
+    return return_results
 
 
 def linprog_B(data):
-    data = np.array([[5, 0, 1], [2, 4, 3]])
+    #data = np.array([[5, 0, 1], [2, 4, 3]])
     b = np.ones(len(data[0]))
     c = np.ones(len(data))
     c = np.append(c, np.zeros(len(data[0])))
@@ -119,7 +119,7 @@ def linprog_B(data):
         y[i] = -1
         data = np.append(data, [y], axis=0)
     res = linprog(-b, A_ub=data, b_ub=c, method="simplex")
-    print(res)
+    #print(res)
     v = 0
     return_results = []
 
@@ -128,8 +128,8 @@ def linprog_B(data):
     v = 1 / v
 
     for y in res.x:
-        return_results.append(v * y)
-    return return_results, v
+        return_results.append((v * y))
+    return return_results
 
 
 data = load_data(file)
@@ -139,8 +139,13 @@ data = find_dominant_row(data)
 data = find_dominant_column(data)
 print(data)
 print("^^^^po usunieciu dominant^^^^^")
-value, index = maxmin(data)
 
+value, index = maxmin(data)
 print(value, index)
-linprog_A(data)
-linprog_B(data)
+value, index = minmax(data)
+print(value, index)
+
+print(linprog_A(data))
+print("^^^^wyniki dla gracza A^^^^")
+print(linprog_B(data))
+print("^^^^wyniki dla gracza B^^^^")
