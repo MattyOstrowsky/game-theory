@@ -71,12 +71,13 @@ def saddle_point(data):
 def linprog_A(data):
     # https://towardsdatascience.com/linear-programming-with-python-db7742b91cb
     # wyklad cz1 str167
-    data = np.array([[5, 0, 1], [2, 4, 3], [5, 4, 3]])
+    data = np.array([[5, 0, 1], [2, 4, 3]])
     data_transpose = data.transpose()
     negative_t_data = np.negative(data_transpose)
     b = np.ones(len(negative_t_data[0]))
     c = np.ones(len(negative_t_data))
     c = np.append(c, np.zeros(len(negative_t_data[0])))
+    c = np.negative(c)
     for i in range(len(negative_t_data[0])):
         y = np.zeros(len(negative_t_data[0]))
         y[i] = -1
@@ -95,11 +96,21 @@ def linprog_A(data):
         "\nStatus:",
         res.message,
     )
-    return
+
+    v = 0
+    return_results = []
+
+    for y in res.x:
+        v += y
+    v = 1/v
+
+    for y in res.x:
+        return_results.append(v * y)
+    return return_results, v
 
 
 def linprog_B(data):
-    data = np.array([[5, 0, 1], [2, 4, 3], [5, 4, 3]])
+    data = np.array([[5, 0, 1], [2, 4, 3]])
     b = np.ones(len(data[0]))
     c = np.ones(len(data))
     c = np.append(c, np.zeros(len(data[0])))
