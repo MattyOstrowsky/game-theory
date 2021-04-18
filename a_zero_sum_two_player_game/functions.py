@@ -118,8 +118,18 @@ def linprog_B(data):
         y = np.zeros(len(data[0]))
         y[i] = -1
         data = np.append(data, [y], axis=0)
-    res = linprog(b, A_ub=data, b_ub=c, method="simplex")
+    res = linprog(-b, A_ub=data, b_ub=c, method="simplex")
     print(res)
+    v = 0
+    return_results = []
+
+    for y in res.x:
+        v += y
+    v = 1 / v
+
+    for y in res.x:
+        return_results.append(v * y)
+    return return_results, v
 
 
 data = load_data(file)
