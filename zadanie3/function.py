@@ -13,8 +13,8 @@ def first_node_process(data):
 
 def print_values(selected_nodes, distances, distances_sum):
     print("------------------------------------------")
-    print("Aktualny stan wartości")
-    print("Już wybrane węzły: ", selected_nodes)
+    # print("Aktualny stan wartości")
+    print("Wybrane węzły: ", selected_nodes)
     print("Kolejne długości krawędzi: ", distances)
     print("Suma: ", distances_sum)
     print("------------------------------------------")
@@ -39,27 +39,27 @@ def find_tree(data):
     selected_nodes, distances = first_node_process(data)
     distances_sum = distances[0]
 
-    print_values(selected_nodes, distances, distances_sum)
+    # print_values(selected_nodes, distances, distances_sum)
 
     for i in range(len(selected_nodes)):
         temp_matrix = np.vstack([temp_matrix, data[selected_nodes[i] - 1]])
 
     while len(selected_nodes) != len(data):
-        print("aktualna tabela do poszukiwania wartości")
-        print(temp_matrix)
+        # print("aktualna tabela do poszukiwania wartości")
+        # print(temp_matrix)
         curr_min = np.amin(temp_matrix)
         row, col = find_min_and_first_index(temp_matrix)
 
         if (col + 1) in selected_nodes:
-            print("to połączenie jest już uwzględnione")
+            # print("to połączenie jest już uwzględnione")
             temp_matrix[row][col] = 99
         else:
-            print("można dołączać - dopisują nowy węzeł")
+            # print("można dołączać - dopisują nowy węzeł")
             selected_nodes.append(col + 1)
             distances.append(curr_min)
             distances_sum += curr_min
             temp_matrix = np.vstack([temp_matrix, data[col]])
-        print_values(selected_nodes, distances, distances_sum)
+        # print_values(selected_nodes, distances, distances_sum)
 
     print("Końcowy wynik:")
 
