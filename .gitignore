@@ -2,3 +2,5 @@
 a_zero_sum_two_player_game/__pycache__/
 
 tests/__pycache__/
+
+.idea/
