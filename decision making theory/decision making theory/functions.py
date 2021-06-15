@@ -1,4 +1,10 @@
 def load_data(file_name: str = 'sample1') -> list:
+    """
+    Loads example
+    :param file_name: file name of example
+    :return: list loaded data
+    """
+    date = ''
     file = open(file_name)
     try:
         date = file.readlines()
@@ -13,6 +19,11 @@ def load_data(file_name: str = 'sample1') -> list:
 
 
 def cut_name(matrix: list) -> list:
+    """
+    Clear matrix
+    :param matrix: matrix to clear
+    :return: cleared matrix
+    """
     new_matrix = []
     for line in matrix:
         new_matrix.append(line[1:])
@@ -20,6 +31,11 @@ def cut_name(matrix: list) -> list:
 
 
 def loss_table(matrix: list) -> list:
+    """
+    calculate loss matrix
+    :param matrix: matrix to calculate loss matrix
+    :return: loss matrix
+    """
     result = []
     matrix = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
     for x in range(0, len(matrix)):

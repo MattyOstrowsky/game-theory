@@ -1,7 +1,11 @@
 import functions
 
+"""
+functions for output
+"""
 
-def data():
+
+def data() -> list:
     name_file = input("Wprowadź nazwę pliku: ")
     m = functions.load_data(name_file)
     print("Twoja macierz:")
