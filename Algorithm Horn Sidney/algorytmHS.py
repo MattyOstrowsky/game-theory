@@ -2,15 +2,36 @@ from numpy.random import randint
 
 
 def index_append(graf_list) -> None:
+    """
+    adds indexes to the list to be searched
+    :param graf_list: list of tasks to add
+    :return: None
+    """
     for task in graf_list:
         indexs_to_check.append(task)
+    return None
 
 
 def timeline(t1: int, t2: int = 0) -> None:
-    f_czas.append(t1 + t2)
+    """
+    Adds the time of the task and the previous task to create timelines
+    the time of the previous task
+    :param t1: the time of the previous task
+    :param t2: the time of task
+    :return:
+    """
+    return f_czas.append(t1 + t2)
 
 
 def algorytm_step(q: list) -> None:
+    """
+    1. finds minimal q
+    2. adds more tasks to the list
+    3. updates timeline
+    4. removes minimal from the list
+    :param q: list of q=w_i/t_i values
+    :return: None
+    """
     min_index = q.index(min(q))
     if indexs_to_check[min_index] <= 4:
         index_append(graf[1][indexs_to_check[min_index] - 2])
@@ -18,6 +39,7 @@ def algorytm_step(q: list) -> None:
     f_index.append(indexs_to_check[min_index])
     timeline(t[indexs_to_check[min_index] - 1], f_czas[-1])
     indexs_to_check.remove(indexs_to_check[min_index])
+    return None
 
 
 graf = [[2, 3, 4], [[5, 6], [7, 8, 9], [10]]]
