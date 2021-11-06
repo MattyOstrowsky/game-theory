@@ -1,7 +1,7 @@
 # Game theory
 
 
-<img align="right" width="33%" src="https://cdn-icons.flaticon.com/png/512/2480/premium/2480809.png?token=exp=1636202947~hmac=982a5d5b26fa3497890fcf4391eba611">
+<img align="right" width="33%" src="https://cdn-icons.flaticon.com/png/512/1623/premium/1623030.png?token=exp=1636204021~hmac=36d17d9110ef72d88548758f8b071f88">
 
 ## Table of contents
 
