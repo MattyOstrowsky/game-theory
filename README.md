@@ -1,7 +1,7 @@
 # Game theory
 
 
-<img align="right" width="33%" src="https://github.com/gunater/game-theory/blob/master/assets/icons8-likelihood-100.png">
+<img align="right" width="20%" src="https://github.com/gunater/game-theory/blob/master/assets/icons8-likelihood-100.png">
 
 ## Table of contents
 
