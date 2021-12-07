@@ -1,7 +1,7 @@
 # Game theory
 
 
-<img align="right" width="33%" src="https://cdn-icons.flaticon.com/png/512/1623/premium/1623030.png?token=exp=1636204021~hmac=36d17d9110ef72d88548758f8b071f88">
+<img align="right" width="33%" src="https://github.com/gunater/game-theory/blob/master/assets/icons8-likelihood-100.png">
 
 ## Table of contents
 
@@ -86,3 +86,4 @@ $ python3 game.py
 ## License
 All code is licensed under an MIT license. This allows you to re-use the code freely, remixed in both commercial and non-commercial projects. The only requirement is to include the same license when distributing.
 
+<a target="_blank" href="https://icons8.com/icon/ihxonBDSqujS/likelihood">Likelihood</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
